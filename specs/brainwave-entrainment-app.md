@@ -32,8 +32,8 @@ single most effective frequency (and dose/duration) for a desired brain state.
 
 ### 2.1 Goals
 
-- Let users explore and apply specific frequencies across the four core
-  brainwave bands.
+- Let users explore and apply specific frequencies across all five named
+  brainwave bands (delta, theta, alpha, beta, gamma).
 - Support **1 Hz increments/modulation** so users can scan closely spaced
   frequencies within a band.
 - Let users control **duration per frequency** to test dose/exposure effects.
@@ -75,22 +75,22 @@ single most effective frequency (and dose/duration) for a desired brain state.
 
 ### 4.1 Brainwave bands
 
-The app covers the four core bands called out by the product, plus the
-**1 Hz modulation** capability that applies across all of them. Exact band edges
-are configurable; the defaults below are conventional.
+The app covers five named bands, plus the **1 Hz modulation** capability that
+applies across all of them. Exact band edges are configurable; the defaults
+below are conventional.
 
 | Band  | Conventional range | Associated states (informational) |
 |-------|--------------------|------------------------------------|
 | Delta | 0.5 – 4 Hz         | Deep sleep, restoration            |
+| Theta | 4 – 8 Hz           | Drowsiness, deep meditation, creativity |
 | Alpha | 8 – 12 Hz          | Relaxed, calm, light meditation    |
 | Beta  | 12 – 30 Hz         | Alert, focused, active thinking    |
 | Gamma | 30 – 100 Hz        | High-level cognition, peak focus   |
 
 > **Note:** The product summary explicitly names alpha, beta, delta, and gamma.
-> Theta (4–8 Hz) is *not* in the v1 core band list, but because the engine
-> supports arbitrary frequencies and 1 Hz stepping, the 4–8 Hz region (e.g. the
-> 5 Hz/6 Hz example) is still reachable as raw frequency input. Whether to
-> surface Theta as a named band is an open question (§12).
+> **Theta (4–8 Hz) is included as a first-class named band** so the 5–6 Hz region
+> used in the example flow (5 Hz/10 min → 6 Hz/5 min) is selectable directly from
+> a band rather than only via raw frequency entry.
 
 ### 4.2 Key terms
 
@@ -111,7 +111,7 @@ are configurable; the defaults below are conventional.
 
 ### 5.1 Frequency control & modulation
 
-- **FR-1** Users can select a **central band** (Delta / Alpha / Beta / Gamma).
+- **FR-1** Users can select a **central band** (Delta / Theta / Alpha / Beta / Gamma).
 - **FR-2** Users can select a **specific frequency within that band**.
 - **FR-3** Frequency can be adjusted in **1 Hz increments** (scan closely spaced
   frequencies). Sub-Hz fine steps (e.g. 0.5 Hz) are a configurable option
@@ -303,20 +303,17 @@ objective signals can be added later without migrating the schema.
 
 ## 12. Open Questions
 
-1. **Theta band:** the core four are alpha/beta/delta/gamma, but the example uses
-   5–6 Hz (theta range). Do we expose Theta as a named band, or only reach it via
-   raw frequency entry?
-2. **Step granularity:** is 1 Hz the *only* step, or do we also offer finer
+1. **Step granularity:** is 1 Hz the *only* step, or do we also offer finer
    (e.g. 0.5 Hz) steps for sub-Hz scanning?
-3. **Rating scale:** 1–5 vs. 0–10; single end-state vs. before/after delta as the
+2. **Rating scale:** 1–5 vs. 0–10; single end-state vs. before/after delta as the
    default.
-4. **Entrainment method:** binaural-only for v1, or also isochronic/monaural at
+3. **Entrainment method:** binaural-only for v1, or also isochronic/monaural at
    launch (affects "headphones required" UX)?
-5. **Tech stack:** cross-platform (Flutter/React Native) vs. fully native — given
+4. **Tech stack:** cross-platform (Flutter/React Native) vs. fully native — given
    the precise real-time audio timing requirements.
-6. **Carrier defaults & exposure:** recommended default carrier frequency and any
+5. **Carrier defaults & exposure:** recommended default carrier frequency and any
    suggested max single-frequency exposure for comfort/safety.
-7. **Effectiveness analytics:** how much statistical guidance to give users
+6. **Effectiveness analytics:** how much statistical guidance to give users
    (e.g. sample-size hints, simple averages) without implying clinical validity.
 
 ---
